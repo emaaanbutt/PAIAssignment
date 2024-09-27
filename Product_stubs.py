@@ -1,3 +1,5 @@
+# SP23-BAI-014 Eman Butt
+# SP23-BAI-019 Ayesha Tahir
 class Product:
   def __init__(self, name, amount, price):
       self.name = name
@@ -44,3 +46,10 @@ myProduct.make_purchase(15)
 myProduct.make_purchase(25)
 myProduct.make_purchase(100)
 myProduct.make_purchase(500)
+
+print()
+
+myProduct2 = Product("Mobile", 50, 10000)
+myProduct2.make_purchase(60)
+myProduct2.make_purchase(30)
+myProduct2.make_purchase(-8)
