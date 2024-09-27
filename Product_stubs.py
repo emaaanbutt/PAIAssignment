@@ -5,7 +5,15 @@ class Product:
       self.price = price
 
   def get_price(self, quantity):
-      return 100
+      price = self.price * quantity
+      if 0 < quantity < 10:
+          return price
+      elif 10 <= quantity <= 99:
+          discount = 0.1 * price
+          return price - discount
+      elif quantity >= 100:
+          discount = 0.2 * price
+          return price - discount
 
   def make_purchase(self, quantity):
     try:
