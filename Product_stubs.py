@@ -5,15 +5,21 @@ class Product:
       self.price = price
 
   def get_price(self, quantity):
-      price = self.price * quantity
-      if 0 < quantity < 10:
-          return price
-      elif 10 <= quantity <= 99:
-          discount = 0.1 * price
-          return price - discount
-      elif quantity >= 100:
-          discount = 0.2 * price
-          return price - discount
+      try:
+          if quantity <= 0:
+              raise ValueError("Quantity must be a positive integer.")
+          price = self.price * quantity
+          if 0 < quantity < 10:
+            return price
+          elif 10 <= quantity <= 99:
+            discount = 0.1 * price
+            return price - discount
+          elif quantity >= 100:
+            discount = 0.2 * price
+            return price - discount
+      except ValueError as e:
+          print(f"Error : {e}")
+          return None
 
   def make_purchase(self, quantity):
     try:
@@ -32,11 +38,9 @@ class Product:
             print(f"Error: {e}")
         
 
-
-
-      
-
-# create product object
-# make purchases against different product quantities (make sure to run each test case)
-# do not forget to handle exceptions
-# print the remaining stock after each purchase
+myProduct = Product("Book", 200, 1200)
+myProduct.make_purchase(4)
+myProduct.make_purchase(15)
+myProduct.make_purchase(25)
+myProduct.make_purchase(100)
+myProduct.make_purchase(500)
